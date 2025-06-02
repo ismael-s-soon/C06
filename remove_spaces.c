@@ -1,28 +1,22 @@
 #include <stdio.h>
 
 int main() {
-    char str[200];
-    char cleaned[200];
+    char str[100], new_str[100];
     int i = 0, j = 0;
 
-    printf("Entrez une chaîne : ");
-    fgets(str, sizeof(str), stdin); // permet de lire avec espaces
+    // Lecture de la chaîne
+    scanf("%[^\n]", str);
 
-    // Parcours de la chaîne d’origine
+    // Suppression des espaces
     while (str[i] != '\0') {
         if (str[i] != ' ') {
-            cleaned[j] = str[i];
-            j++;
+            new_str[j++] = str[i];
         }
         i++;
     }
+    new_str[j] = '\0';
 
-    // Fin de la chaîne nettoyée
-    cleaned[j] = '\0';
-
-    // Affichage des résultats
-    printf("%s", str);       // affiche la chaîne originale
-    printf("%s", cleaned);   // affiche la chaîne sans espaces
-
+    // Affiche la chaîne sans espaces
+    printf("%s\n", new_str);
     return 0;
 }
