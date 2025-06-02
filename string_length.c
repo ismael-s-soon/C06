@@ -1,23 +1,18 @@
 #include <stdio.h>
 
 int main() {
-    char str[200];
-    int length = 0;
+    char str[100];
+    int len = 0;
 
-    printf("Entrez une chaîne : ");
-    fgets(str, sizeof(str), stdin);  // lire avec espaces
+    // Lecture de la chaîne
+    scanf("%[^\n]", str);
 
-    // Compter manuellement la longueur sans strlen
-    while (str[length] != '\0') {
-        // on ne compte pas le caractère de fin de ligne '\n'
-        if (str[length] == '\n') {
-            break;
-        }
-        length++;
+    // Calcul manuel de la longueur
+    while (str[len] != '\0') {
+        len++;
     }
 
-    // Affichage
-    printf("Longueur de la chaîne : %d\n", length);
-
+    // Affiche la longueur
+    printf("Longueur de la chaîne : %d\n", len);
     return 0;
 }
