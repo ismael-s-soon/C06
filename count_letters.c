@@ -1,35 +1,23 @@
 #include <stdio.h>
-
-int main() {
-    char str[200];
-    int i = 0, vowels = 0, consonants = 0;
+int main(){
+    int voyelle = 0;
+    int consonne = 0;
     char c;
-
-    printf("Entrez une chaîne : ");
-    fgets(str, sizeof(str), stdin); // lecture avec espaces
-
-    while (str[i] != '\0') {
-        c = str[i];
-
-        // Vérifie si c'est une lettre alphabétique
-        if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z')) {
-            // Met en minuscule si nécessaire (sans tolower)
-            if (c >= 'A' && c <= 'Z') {
-                c = c + ('a' - 'A');
-            }
-
-            // Vérifie si c'est une voyelle
-            if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' || c == 'y') {
-                vowels++;
-            } else {
-                consonants++;
-            }
+    scanf("%c", &c);
+    while (c != '\n') {
+        if (c >= 'a' && c <= 'z') {
+            c = c - 32; // Convertit en majuscule
         }
-        i++;
-    }
+        if (c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U' || c == 'Y') {
+            voyelle++;
+        } else if ((c >= 'B' && c <= 'Z') && !(c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U' || c == 'Y')) {
+            consonne++;
+        }
+        scanf("%c", &c);
+    }    
 
-    printf("Voyelles : %d\n", vowels);
-    printf("Consonnes : %d\n", consonants);
+    
+    printf("Voyelles : %d, Consonnes : %d",voyelle, consonne);
 
     return 0;
 }
