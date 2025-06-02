@@ -1,25 +1,21 @@
 #include <stdio.h>
 
 int main() {
-    char str[200];
+    char str[100];
     int i = 0;
 
-    printf("Entrez une chaîne : ");
-    fgets(str, sizeof(str), stdin); // lire la chaîne avec espaces
+    // Saisie utilisateur
+    scanf("%[^\n]", str);
 
-    // Affiche la chaîne d’origine
-    printf("%s", str);
-
-    // Transformation en majuscules
+    // Conversion des lettres minuscules en majuscules
     while (str[i] != '\0') {
         if (str[i] >= 'a' && str[i] <= 'z') {
-            str[i] = str[i] - ('a' - 'A'); // ou -32
+            str[i] = str[i] - 32;
         }
         i++;
     }
 
-    // Affiche la chaîne en majuscules
-    printf("%s", str);
-
+    // Affiche la chaîne convertie
+    printf("%s\n", str);
     return 0;
 }
