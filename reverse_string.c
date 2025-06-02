@@ -2,27 +2,21 @@
 
 int main() {
     char str[100];
-    int i = 0, j, length = 0;
-    char temp;
+    int i = 0, len = 0;
 
-    // Lire la chaîne de caractères
-    printf("Entrez une chaîne : ");
-    scanf("%s", str);
+    // Demande à l'utilisateur une chaîne de caractères
+    scanf("%[^\n]", str); // Lecture jusqu'au saut de ligne
 
-    // Calcul de la longueur de la chaîne manuellement
-    while (str[length] != '\0') {
-        length++;
+    // Calcul de la longueur de la chaîne
+    while (str[len] != '\0') {
+        len++;
     }
 
-    // Inversion de la chaîne avec une boucle
-    for (i = 0, j = length - 1; i < j; i++, j--) {
-        temp = str[i];
-        str[i] = str[j];
-        str[j] = temp;
+    // Affichage de la chaîne inversée
+    printf("Chaîne inversée : ");
+    for (i = len - 1; i >= 0; i--) {
+        putchar(str[i]);
     }
-
-    // Affichage du résultat
-    printf("Chaîne inversée : %s\n", str);
-
-    return 0;
+    printf("\n");
+    return 0; 
 }
